@@ -26,9 +26,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-#left-sidebar #top-left-sidebar {
+#left-sidebar > div {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+#left-sidebar #top-left-sidebar {
   gap: 8px;
 }
 
