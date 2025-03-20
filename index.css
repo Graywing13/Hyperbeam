@@ -25,6 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 #left-sidebar > div {
   display: flex;
@@ -33,6 +34,10 @@ body {
 }
 #left-sidebar #top-left-sidebar {
   gap: 8px;
+}
+#left-sidebar .left-sidebar-img {
+  width: 44px;
+  height: 44px;
 }
 
 #middle-panel {
