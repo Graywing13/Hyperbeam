@@ -1,8 +1,12 @@
 :root {
     --bottom-sidebar-height: 124px;
-
     --hb-bg-200: #1e1f25;
     --hb-bg-300: #17181c;
+    --icon-default: #afb0b1;
+    --icon-active: #ffffff;
+    --hb-purple: #a888ff;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
 }
 
 html {
@@ -33,15 +37,58 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+
+        button {
+            background-color: var(--hb-bg-300);
+            border: none;
+            height: 44px;
+            margin-top: 8px;
+            cursor: pointer;
+            transition-property: all;
+            transition-timing-function: var(
+                --default-transition-timing-function
+            );
+            transition-duration: var(--default-transition-duration);
+
+            svg {
+                height: 24px;
+                fill: var(--icon-default);
+            }
+
+            &.img-btn {
+                height: 56px;
+                margin-right: 4px;
+                padding-bottom: 2px;
+
+                .left-sidebar-img {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 100%;
+                    border: 2px solid transparent;
+                    box-sizing: border-box;
+
+                    &.bordered {
+                        border: 2px solid var(--hb-purple);
+                    }
+                }
+            }
+        }
+
+        button.active {
+            svg {
+                height: 30px;
+            }
+        }
+
+        button:hover {
+            svg {
+                fill: var(--hb-purple);
+            }
+        }
     }
 
     #top-left-sidebar {
         gap: 8px;
-    }
-
-    .left-sidebar-img {
-        width: 44px;
-        height: 44px;
     }
 }
 
