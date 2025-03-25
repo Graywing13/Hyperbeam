@@ -1,29 +1,28 @@
 :root {
   --bottom-sidebar-height: 124px;
+  --left-sidebar-width: 72px;
   --hb-bg-200: #1e1f25;
   --hb-bg-300: #17181c;
+  --hb-purple: #a888ff;
   --icon-default: #afb0b1;
   --icon-active: #ffffff;
-  --hb-purple: #a888ff;
+  --text-primary: #ffffff;
   --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --default-transition-duration: 150ms;
 }
 
-html {
-  height: 100%;
-  width: 100%;
-}
-
+html,
 body {
   height: 100%;
   width: 100%;
   margin: 0;
-  display: flex;
+  overflow: hidden;
 }
 
 #left-sidebar {
   height: 100%;
-  width: 72px;
+  width: var(--left-sidebar-width);
+  min-width: var(--left-sidebar-width);
   background-color: var(--hb-bg-300);
   padding-top: 8px;
   padding-bottom: 12px;
@@ -78,27 +77,79 @@ body {
   gap: 8px;
 }
 
+#flexable-content {
+  height: 100%;
+  width: calc(100% - var(--left-sidebar-width));
+  max-width: calc(100% - var(--left-sidebar-width));
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: var(--left-sidebar-width);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
 #middle-panel {
   height: 100%;
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 #middle-panel #media-window {
-  flex-grow: 1;
   height: 100%;
   max-height: calc(100% - var(--bottom-sidebar-height));
+  width: 100%;
+  position: relative;
+  flex-grow: 1;
   background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#middle-panel #media-window .empty-room-container {
+  height: 0;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+#middle-panel #media-window .empty-room-container #couch-illustration {
+  padding: 0;
+  width: 560px;
+  height: min-content;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+#middle-panel #media-window .empty-room-container #couch-illustration svg {
+  height: max-content;
+}
+#middle-panel #media-window .empty-room-container h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+  font-weight: 550;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
 }
 #middle-panel #bottom-sidebar {
-  height: 100%;
-  min-height: var(--bottom-sidebar-height);
+  height: var(--bottom-sidebar-height);
   background-color: var(--hb-bg-200);
 }
 
 #right-sidebar {
   height: 100%;
-  width: 340px;
+  width: 300px;
+  min-width: 300px;
+  flex-shrink: 0;
   background-color: antiquewhite;
 }
 
