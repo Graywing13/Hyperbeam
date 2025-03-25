@@ -48,6 +48,7 @@ body {
   transition-duration: var(--default-transition-duration);
 }
 #left-sidebar > div button svg {
+  margin-top: 2px;
   height: 24px;
   fill: var(--icon-default);
 }
@@ -67,7 +68,8 @@ body {
   border: 2px solid var(--hb-purple);
 }
 #left-sidebar > div button.active svg {
-  height: 30px;
+  height: 29px;
+  margin-top: 1px;
 }
 #left-sidebar > div button:hover svg {
   fill: var(--hb-purple);

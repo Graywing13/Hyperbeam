@@ -51,6 +51,7 @@ body {
             transition-duration: var(--default-transition-duration);
 
             svg {
+                margin-top: 2px;
                 height: 24px;
                 fill: var(--icon-default);
             }
@@ -76,7 +77,8 @@ body {
 
         button.active {
             svg {
-                height: 30px;
+                height: 29px;
+                margin-top: 1px;
             }
         }
 
